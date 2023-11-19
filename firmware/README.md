@@ -37,3 +37,39 @@ esptool.py --chip esp32c3 --port /dev/ttyUSB0 erase_flash
 ```
 esptool.py --chip esp32c3 --port /dev/ttyUSB0 --baud 1000000 write_flash -z 0x0 LOLIN_C3_MINI-20231005-v1.21.0.bin
 ```
+
+
+## MicroPython libraries
+
+Once MicroPython is installed in the Wemos C3 Mini, we need to add the
+libraries included here:
+
+- urequests: MicroPython version of the requests library.
+    - v0.9.1 https://pypi.org/project/micropython-urequests/0.9.1/#files
+
+
+### Installing packages
+
+To do that we use the `mpremote` tool.
+
+#### `mpremote`` installation
+
+From a virtual environment:
+
+```
+pip install mpremote
+```
+
+Or using the requirements.txt located here, which also includes esptool:
+```
+pip install -r requirements.txt
+```
+
+#### Running `mpremote` to install packages
+
+```
+mpremote connect <serial_port> fs mkdir urequests
+```
+```
+mpremote connect <serial_port> fs cp urequests/__init__.py :urequests/__init__.py
+```
