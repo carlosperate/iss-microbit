@@ -2,6 +2,7 @@
 # Project Specific #
 ####################
 proto-code/index.html
+WIFI_SECRETS_DONT_COMMIT.py
 
 ###################
 # Python Specific #
